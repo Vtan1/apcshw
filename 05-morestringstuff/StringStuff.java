@@ -1,3 +1,8 @@
+/* Working
+Sarah Chen 
+Victor Tan
+*/
+
 public class StringStuff {
     public String nonStart (String a, String b) {
 	String newa = a.substring(1);
