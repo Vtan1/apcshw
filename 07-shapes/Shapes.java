@@ -52,4 +52,15 @@ public class Shapes {
 	}
 	return ans;
     }
+    public String tri3(int h){
+	int stars = 1;
+	int row = 1;
+	int last = 2*h - 1;
+	int space = 0;
+	String ans = "";
+	while (h>=row) {
+	    while (stars <= last){
+		while (((last - stars)/2)>=0){
+	
+    	
 }
