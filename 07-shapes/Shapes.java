@@ -55,12 +55,65 @@ public class Shapes {
     public String tri3(int h){
 	int stars = 1;
 	int row = 1;
-	int last = 2*h - 1;
-	int space = 0;
+	int space = h-1;
 	String ans = "";
 	while (h>=row) {
-	    while (stars <= last){
-		while (((last - stars)/2)>=0){
-	
-    	
+	    int x = 2*row -1;
+	    int space2 = space;
+	    while (space2 > 0){
+		ans = ans + " ";
+		space2 = space2 - 1;
+	    }
+	    space = space - 1;
+	    while (x > 0){
+		ans = ans + "*";
+		x = x - 1;
+	    }
+	    row = row + 1;
+	    ans = ans + "\n";
+	}
+	return ans;
+    }
+    public String tri3ud(int h){
+	int row = h-1;
+	String ans = "";
+	while (row >= 0) {
+	    int stars = 2*row + 1;
+	    int space = h - row;
+	    while (space > 0){
+		ans = ans + " ";
+		space = space - 1;
+	    }
+	    while (stars > 0){
+		ans = ans + "*";
+		stars = stars - 1;
+	    }
+	    row = row - 1;
+	    ans = ans + "\n";
+	}
+	return ans;
+    }
+    public String diamond(int h){
+	int x = h/2;
+	return tri3(x+1) + tri3ud(x);
+    }
+    public String tri4(int h){
+	String ans = "";
+	int rows = 0;
+	while (rows < h){
+	    int space = h;
+	    int stars = h;
+	    while (space > (h - rows)){
+		ans = ans + " ";
+		space = space - 1;
+	    }
+	    while (stars > rows){
+		ans = ans + "*";
+		stars = stars - 1;
+	    }
+	    ans = ans + "\n";
+	    rows = rows + 1;
+	}
+	return ans;
+    }
 }
