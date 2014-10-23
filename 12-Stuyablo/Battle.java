@@ -24,7 +24,7 @@ public class Battle extends World {
 		boolean gotaway = false;
 		boolean turn = true;
 		System.out.println("1. Attack");
-		System.out.println("2. Run Away");
+		System.out.println("2. KO");
 		System.out.println("Choose 1 or 2");
 		Scanner sc = new Scanner(System.in);
 		int response = (int)(sc.nextInt());
@@ -40,13 +40,15 @@ public class Battle extends World {
 					break;
 				case 2:
 					int randNum = (int)(Math.random() * 100);
-			    		if (randNum > 50) {
-						System.out.println("You can't run away.");
+			    		if (randNum > 20) {
+						System.out.println("KO FAILED");
 						turn = false;
 			    		}
 					else {
-						System.out.println("You got away safely.");
+						System.out.println("KO");
 						gotaway = true;
+						m.setHealth(0);
+						System.out.println("Monster has " + m.health() + " health.");
 			    		}
 					break;
 				default:
