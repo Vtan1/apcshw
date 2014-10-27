@@ -35,23 +35,7 @@ public class Arraystuff {
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
 	System.out.println(as);
-    }
-    public int find(int n){
-	int ans = -1;
-	for (int i = 0; i < a.length && ans == -1; i++) {
-	    if (a[i] == n){
-		ans = n;
-	    }
-	}
-	return ans;
-    }
-    public int maxVal(){
-	int ans = 0;
-	for (int i = 0;i < a.length;i++){
-	    if (a[i] > ans){
-		ans = a[i];
-	    }
-	}
-	return ans;
+	
+	
     }
 }
