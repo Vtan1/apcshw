@@ -40,7 +40,9 @@ public class Arraystuff {
 	int ans = -1;
 	for (int i = 0; i < a.length && ans == -1; i++) {
 	    if (a[i] == n){
-		ans = n;
+		ans = i;
+		break;
+		//Gets out of loop instantly.
 	    }
 	}
 	return ans;
