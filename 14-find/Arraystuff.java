@@ -146,7 +146,7 @@ public class Arraystuff {
     public int [] seriesUp(int n) {
 	int[] ans = new int[n*(n+1)/2];
 	int i = 0;
-	for (int terms = 0;terms <= n;terms ++) {
+	for (int terms = 1;terms <= n;terms ++) {
 	    for (int x = 1;x <=terms;x++,i++){
 		ans[i]=x;
 	    }
