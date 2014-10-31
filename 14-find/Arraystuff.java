@@ -169,3 +169,5 @@ public int[] seriesUp(int n) {
     return out;
 }
 */
+
+//Working on maxMirror on codingbat, not sure how to do it.
