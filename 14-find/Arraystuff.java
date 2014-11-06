@@ -153,21 +153,25 @@ public class Arraystuff {
 	}
 	return ans;
     }
-}
-/*
-public int[] seriesUp(int n) {
-    int[] out = new int[(n*(n + 1)/2)];
-    int a = 1;
-    int ind = 0;
-    while (ind < out.length) {
-	for (int k = 1; k <= a; k ++) {
-	    out[ind] = k;
-	    ind ++;   
-	}
-	a++;
-    }
-    return out;
-}
-*/
 
-//Working on maxMirror on codingbat, not sure how to do it.
+//taken from Johnny.
+    public int maxMirror(int[] nums) {
+	int c;
+	int ans = 0;
+	for (int i = 0; i < nums.length;i++) {
+	    c = 0;
+	    for (int r = nums.length-1; ((r >= 0) && (i + c < nums.length)); r --) {
+		if (nums[i + c] == nums[r]) {
+		    c++;
+		} else {
+		    if (c > 0) {
+			ans = Math.max(ans,c);
+			c = 0;
+		    }
+		}
+	    }
+	    ans = Math.max(ans,c);
+	}
+	return ans;
+    }
+}
