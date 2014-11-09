@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Sarray {
+    int[] data; //should be object[] to store wide range of things.
+    int last;
+
+    public Sarray () {
+	data = new int[10];
+	last = 0;
+    }
+
+    public boolean add(int i) {
+	if (size() == data.length) {
+	    int[] ans = new int[data.length + 1];
+	    for (int i = 0; i < data.length; i ++) {
+		ans[i] = data[i];
+	    }
+	    ans[data.length] = i;
+	    data = ans;
+	    last += 1;
+	} else {
+	    data[last] = i;
+	    last += 1;
+	}
+	return true;
+    }
+
+    public void add(int index, int i) {
+	
+    /*
+      add(int i) adds to end
+      add(int index, int i) adds to location index and shift things down
+      get(int index)
+      set(int index, index i)
+      size()
+      remove(int index) shift things over to the left when you remove
+    */
