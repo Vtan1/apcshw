@@ -1,0 +1,9 @@
+public class cat extends pet {
+    public Cat(String name) {
+	super(name);
+	//calls super's constructor with (name)
+    }
+
+    public String speak() {
+	return "meow";
+    }
