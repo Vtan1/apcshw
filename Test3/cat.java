@@ -18,5 +18,5 @@ public class loudDog extends pet {
 //Kennel
 
 for (int i = 0;i < petList.length;i++) {
-    System.out.println(petList[i].getName() + petList[i].speak())
+    System.out.println(petList[i].getName() + ": " + petList[i].speak())
 	}
