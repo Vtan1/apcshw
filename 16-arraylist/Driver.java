@@ -26,6 +26,7 @@ public class Driver {
 	for (int x = 0; x < ai.size() - 1; x++) {
 	    if (ai.get(x) == ai.get(x + 1)) {
 		ai.remove(x);
+		x--;
 	    }
 	}
 	System.out.println(ai);
