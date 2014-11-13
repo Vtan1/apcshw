@@ -1,0 +1,10 @@
+public class Driver {
+    public static void main(String[] args) {
+	ArrayList<Integer> ai = new ArrayList<Integer>();
+	Random r = new Random();
+	for (int i = 0; i < 10; i ++) {
+	    ai.add(i);
+	}
+	System.out.println(ai);
+    }
+}
