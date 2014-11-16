@@ -23,6 +23,25 @@ public class Driver {
 	for(int i = 0;i < 10; i ++) {
 	    a[i] = i;
 	}
+
+	String s = "";
+	for (int i = 0; i < 10;i++) {
+	    s = s + a[i] + ", ";
+	}
+	System.out.println(s);
 	//makes randomized array
+	//doesn't work
+	int[] newArray = new int[10];
+	int pos = 0;
+	for (int i = 10;i > 0;i--,pos++) {
+	    int x = r.nextInt(i);
+	    newArray[pos] = a[x];
+	}
+	
+	String t = "";
+	for (int i = 0;i < 10; i++) {
+	    t = t + newArray[i] + ", ";
+	}
+	System.out.println(t);
     }
 }
