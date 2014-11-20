@@ -23,18 +23,41 @@ public class WordSearch{
     }
     public void addWordHR(String w,int row, int col){
 	int r = row, c = col;
-	if (c+w.length()<=board[r].length){
+	if (c+w.length()<=board[r].length && r < board.length && c < board[r].length){
 	    for (int i=0;i<w.length();i++){
-		board[r][c] = w.charAt(i);
-		c++;}}	
+		if (board[r][c] == '.') {
+		    board[r][c] = w.charAt(i);
+		    c++;
+		} else {
+		    if (board[r][c] == w.charAt(i)) {
+			c++;
+		    } else {
+			System.out.println(w + " encountered a different word while going forwards horizontally.");
+		    }
+		}	
+	    }
+	} else {
+	    System.out.println(w + "is out of bounds.");
+	}
     }
     public void addWordHL(String w,int row, int col){
 	int r = row, c = col;
-	if (c-w.length()>=0){
+	if (c-w.length()>=0 && row > 0 && col > 0){
 	    for (int i=0;i<w.length();i++){
-		board[r][c] = w.charAt(i);
-		c--;
-	    }}
+		if (board[r][c] == '.') {
+		    board[r][c] = w.charAt(i);
+		    c--;
+		} else {
+		    if (board[r][c] == w.charAt(i)) {
+			c--;
+		    } else {
+			System.out.println(w + " encountered a different word while going backwards horizontally.");
+		    }
+		}	
+	    }
+	} else {
+	    System.out.println(w + " is out of bounds.");
+	}
     }
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
