@@ -389,7 +389,19 @@ public class WordSearch{
 	    //return true;
 	}
     }
-    
+
+    public void fillUp() {
+	char[] s = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[i].length; j++) {
+		if (board[i][j] == '.') {
+		    Random r = new Random();
+		    int random = r.nextInt(26);
+		    board[i][j] = s[random];
+		}
+	    }
+	}
+    }
 
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
@@ -403,6 +415,7 @@ public class WordSearch{
 	w.addWordDUL("tan",10,12);
 	w.addWordDUR("tan",10,10);
 	w.addWord("adding");
+	w.fillUp();
 	System.out.println(w);
     }
 }
