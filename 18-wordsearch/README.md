@@ -1,0 +1,1 @@
+I technically completed the board, but I can still compress my code to make it more concise.
