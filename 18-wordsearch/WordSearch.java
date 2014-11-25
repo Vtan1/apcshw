@@ -392,6 +392,17 @@ public class WordSearch{
 
     public void fillUp() {
 	char[] s = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+	Scanner sc = null;
+	try {
+	    sc = new Scanner(new File("Words.txt"));
+	} catch (Exception e) {
+	    System.out.println("Can't open file");
+	    System.exit(0);
+	}
+	while (sc.hasNext()) {
+	    String x = sc.next();
+	    addWord(x);
+	}
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
 		if (board[i][j] == '.') {
@@ -405,6 +416,7 @@ public class WordSearch{
 
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
+	/*
 	w.addWordHR("hello",1,25);
 	w.addWordHR("look",3,22);
 	w.addWordHL("look",1,20);
@@ -415,6 +427,7 @@ public class WordSearch{
 	w.addWordDUL("tan",10,12);
 	w.addWordDUR("tan",10,10);
 	w.addWord("adding");
+	*/
 	w.fillUp();
 	System.out.println(w);
     }

@@ -357,18 +357,65 @@ public class WordSearch{
 	}
     }
 
+    public void addWord(String w) {
+	Random R = new Random();
+	int RandomCall = R.nextInt(8);
+	Random r = new Random();
+	int randomc = r.nextInt(30);
+	int randomr = r.nextInt(20);
+	if (RandomCall == 0){
+	    addWordHR(w,randomr,randomc);
+	    //return true;
+	} else if (RandomCall == 1){
+	    addWordHL(w,randomr,randomc);
+	    //return true;
+	} else if (RandomCall == 2){
+	    addWordVD(w,randomr,randomc);
+	    //return true;
+	} else if (RandomCall == 3){
+	    addWordVU(w,randomr,randomc);
+	    //return true;
+	} else if (RandomCall == 4){
+	    addWordDDL(w,randomr,randomc);
+	    //return true;
+	} else if (RandomCall == 5){
+	    addWordDDR(w,randomr,randomc);
+	    //return true;
+	} else if (RandomCall == 6){
+	    addWordDUR(w,randomr,randomc);
+	    //return true;
+	} else {
+	    addWordDUL(w,randomr,randomc);
+	    //return true;
+	}
+    }
+
+    public void fillUp() {
+	char[] s = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[i].length; j++) {
+		if (board[i][j] == '.') {
+		    Random r = new Random();
+		    int random = r.nextInt(26);
+		    board[i][j] = s[random];
+		}
+	    }
+	}
+    }
 
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
-	    w.addWordHR("hello",1,25);
-	    w.addWordHR("look",3,22);
-	    w.addWordHL("look",1,20);
-	    w.addWordHL("look",3,5);
-	    w.addWordVD("howdy",0,18);
-	    w.addWordDDL("swag",0,3);
-	    w.addWordDDR("swoosh",14,24);
-	    w.addWordDUL("tan",10,12);
-	    w.addWordDUR("tan",10,10);
-	    System.out.println(w);
+	w.addWordHR("hello",1,25);
+	w.addWordHR("look",3,22);
+	w.addWordHL("look",1,20);
+	w.addWordHL("look",3,5);
+	w.addWordVD("howdy",0,18);
+	w.addWordDDL("swag",0,3);
+	w.addWordDDR("swoosh",14,24);
+	w.addWordDUL("tan",10,12);
+	w.addWordDUR("tan",10,10);
+	w.addWord("adding");
+	w.fillUp();
+	System.out.println(w);
     }
 }
