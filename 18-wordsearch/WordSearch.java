@@ -393,6 +393,8 @@ public class WordSearch{
     public void fillUp() {
 	char[] s = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 	Scanner sc = null;
+	//when scanning you need a try catch block.
+	//can also place the scanner in the constructor.
 	try {
 	    sc = new Scanner(new File("Words.txt"));
 	} catch (Exception e) {
@@ -432,3 +434,10 @@ public class WordSearch{
 	System.out.println(w);
     }
 }
+
+/*
+  1. load Words.txt
+  2. select words and put them ALL into the puzzle
+  3. print puzzle and the key
+  4. fill the rest of the board
+*/

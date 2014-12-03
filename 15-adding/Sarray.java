@@ -1,37 +1,38 @@
 import java.util.*;
 
 public class Sarray {
-    int[] data; //should be object[] to store wide range of things.
+    String[] data; //should be object[] to store wide range of things.
     int last;
 
     public Sarray () {
-	data = new int[10];
+	data = new String[10];
+	//data = {"hello", "groovy"};
 	last = 0;
     }
 
-    public boolean add(int i) {
+    public boolean add(String s) {
 	if (size() == data.length) {
-	    int[] ans = new int[data.length + 1];
+	    String[] ans = new String[data.length + 1];
 	    for (int x = 0; x < data.length; x ++) {
 		ans[x] = data[x];
 	    }
-	    ans[data.length] = i;
+	    ans[data.length] = s;
 	    data = ans;
 	    last += 1;
 	} else {
-	    data[last] = i;
+	    data[last] = s;
 	    last += 1;
 	}
 	return true;
     }
-
-    public void add(int index, int i) {
-	int[] ans = new int[last + 1];
+    
+    public void add(int index, String s) {
+        String[] ans = new String[last + 1];
 	for (int x = 0;x < ans.length;x++) {
 	    if (x < index) {
 		ans[x] = data[x];
-	    } else if (i == index) {
-		ans[x] = i;
+	    } else if (x == index) {
+		ans[x] = s;
 	    } else {
 		ans[x] = data[x - 1];
 	    }
@@ -44,19 +45,19 @@ public class Sarray {
 	return last;
     }
 
-    public int get(int index) {
+    public String get(int index) {
 	return data[index];
     }
 
-    public int set(int index, int i) {
-	int ans = data[index];
-	data[index] = i;
+    public String set(int index, String s) {
+	String ans = data[index];
+	data[index] = s;
 	return ans;
     }
 
-    public int remove(int index) {
-	int[] ans = new int[size() - 1];
-	int old = 0;
+    public String remove(int index) {
+	String[] ans = new String[size() - 1];
+	String old = "";
 	for (int i = 0; i < ans.length; i ++) {
 	    if (i < index) {
 		ans[i] = data[i];
