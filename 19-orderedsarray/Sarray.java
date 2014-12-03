@@ -6,7 +6,6 @@ public class Sarray {
 
     public Sarray () {
 	data = new String[10];
-	//data = {"hello", "groovy"};
 	last = 0;
     }
 
@@ -72,6 +71,7 @@ public class Sarray {
 	return old;
     }
 }
+    
     /*
       add(int i) adds to end
       add(int index, int i) adds to location index and shift things down

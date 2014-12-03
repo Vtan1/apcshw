@@ -5,7 +5,7 @@ public class OrderedSuperArray extends Sarray {
     public OrderedSuperArray() {
 	super();
     }
-    
+
     public int place(String s) {
 	int index = data.length;
 	for (int i = 0; i < data.length;i++) {
@@ -27,5 +27,10 @@ public class OrderedSuperArray extends Sarray {
 	super.remove(index);
 	add(s);
 	return ans;
+    }
+
+    public static void main(String[] args) {
+	OrderedSuperArray osa = new OrderedSuperArray();
+	System.out.println(osa.add("Hello"));
     }
 }
