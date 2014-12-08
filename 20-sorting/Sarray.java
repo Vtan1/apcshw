@@ -122,7 +122,8 @@ public class Sarray {
     }
 
     // The run times for selection and insertion sort are approximately the same
-
+    // Both are approximately n^2 operations each (loop within a loop)
+    
     //bubble sort
     public void bsort() {
 	boolean keepgoing = true;
@@ -144,11 +145,20 @@ public class Sarray {
     
     //Bubble sort becomes very inefficient once the length of the array gets
     //larger because you need to do many more operations.
+
+    public void builtin() {
+	/* This sorts the whole array, but if you only want to sort part of it,
+	   you should write Arrays.sort(data,0,n) where n is the index beyond
+	   the stopping point.
+	*/
+	Arrays.sort(data);
+	// Would use Collections.sort(list) for ArrayList.
+    }
     
     public static void main(String[] args) {
 	String[] blah = {"ding","dong","swing","swig","carol","hearts"};
 	Sarray s = new Sarray(6,blah);
-	s.bsort();
+	s.builtin();
 	System.out.println(s);
     }
 }
