@@ -70,8 +70,38 @@ public class Sarray {
 	data = ans;
 	return old;
     }
+    //insertion sort
+    public void toShift(int pos, String newvalue) {
+	int i;
+	for (i = pos; i > 0 && newvalue.compareTo(data[i-1]) < 0 ; i--) {
+	    data[i] = data[i-1];    
+	}
+	data[i]=newvalue;
+    }
+    //insertion sort
+    public void isort() {
+	for (int x = 1; x <= last;x++) {
+	    toShift(x, data[x]);
+	}
+    }
+    //selection sort
+    public void sSort() {
+	String min;
+	int index = 0;
+	for (int y = 0; y < last; y++) {
+	    for (int x = 0; x < last;x++) {
+		if (data[x].compareTo(data[x+1]) > 0) {
+		    min = data[x+1];
+		    index = x+1;
+		}
+	    }
+	    data[y] = data[index];
+	    data[index] = data[y];
+	    min = "";
+	}
+    }	
 }
-    
+
     /*
       add(int i) adds to end
       add(int index, int i) adds to location index and shift things down
