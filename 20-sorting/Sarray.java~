@@ -9,6 +9,26 @@ public class Sarray {
 	last = 0;
     }
 
+    public Sarray(int len, String[] array) {
+	data = new String[len];
+	for (int i = 0; i < array.length; i++) {
+	    data[i] = array[i];
+	}
+	last = array.length - 1;
+	for (int y = last; y < len; y++) {
+	    data[y] = "";
+	}
+    }
+
+    public String toString() {
+	String array = "{";
+	for (int i = 0; i < data.length; i++) {
+	    array+= data[i] + ",";
+	}
+	array+= "}";
+	return array;
+    }
+
     public boolean add(String s) {
 	if (size() == data.length) {
 	    String[] ans = new String[data.length + 1];
@@ -78,35 +98,82 @@ public class Sarray {
 	}
 	data[i]=newvalue;
     }
-    //insertion sort
+
     public void isort() {
 	for (int x = 1; x <= last;x++) {
 	    toShift(x, data[x]);
 	}
     }
     //selection sort
-    public void sSort() {
-	String min;
+    public int indexfinderino(int upTo) {
 	int index = 0;
-	for (int y = 0; y < last; y++) {
-	    for (int x = 0; x < last;x++) {
-		if (data[x].compareTo(data[x+1]) > 0) {
-		    min = data[x+1];
-		    index = x+1;
+	for (int i = 1;i <= upTo;i++) {
+	    if (data[index].compareTo(data[i]) < 0) {
+	    index = i;
+	    }
+	}
+	return index;
+    }
+
+    public void ssort() {
+	for (int x = last;x >= 0; x --) {
+	    String biggest = data[indexfinderino(x)];
+	    int indexbig = indexfinderino(x);
+	    data[indexbig] = data[x];
+	    data[x] = biggest;
+	}
+    }
+
+    // The run times for selection and insertion sort are approximately the same
+    // Both are approximately n^2 operations each (loop within a loop)
+    
+    //bubble sort
+    public void bsort() {
+	boolean keepgoing = true;
+	while (keepgoing) {
+	    int numSwaps = 0;
+	    for (int i = 0; i < last;i++) {
+		if (data[i].compareTo(data[i+1]) > 0) {
+		    String temp = data[i];
+		    data[i] = data[i+1];
+		    data[i+1] = temp;
+		    numSwaps++;
 		}
 	    }
-	    data[y] = data[index];
-	    data[index] = data[y];
-	    min = "";
+	    if (numSwaps == 0) {
+		keepgoing = false;
+	    }
 	}
-    }	
+    }
+    
+    //Bubble sort becomes very inefficient once the length of the array gets
+    //larger because you need to do many more operations.
+
+    public void builtin() {
+	/* This sorts the whole array, but if you only want to sort part of it,
+	   you should write Arrays.sort(data,0,n) where n is the index beyond
+	   the stopping point.
+	*/
+	Arrays.sort(data);
+	// Would use Collections.sort(list) for ArrayList.
+    }
+    
+    public static void main(String[] args) {
+	String[] blah = {"ding","dong","swing","swig","carol","hearts",
+			 "convivial","penury","regicide","cadence","misogamy",
+			 "candor","fuddle","repulsion","wisenheimer","iris"};
+	Sarray s = new Sarray(20,blah);
+	System.out.println(s);
+	s.builtin();
+	System.out.println(s);
+    }
 }
 
-    /*
-      add(int i) adds to end
-      add(int index, int i) adds to location index and shift things down
-      get(int index)
-      set(int index, index i)
-      size()
-      remove(int index) shift things over to the left when you remove
-    */
+/*
+  add(int i) adds to end
+  add(int index, int i) adds to location index and shift things down
+  get(int index)
+  set(int index, index i)
+  size()
+  remove(int index) shift things over to the left when you remove
+*/
