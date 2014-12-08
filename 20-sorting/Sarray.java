@@ -15,6 +15,9 @@ public class Sarray {
 	    data[i] = array[i];
 	}
 	last = array.length - 1;
+	for (int y = last; y < len; y++) {
+	    data[y] = "";
+	}
     }
 
     public String toString() {
@@ -156,8 +159,11 @@ public class Sarray {
     }
     
     public static void main(String[] args) {
-	String[] blah = {"ding","dong","swing","swig","carol","hearts"};
-	Sarray s = new Sarray(6,blah);
+	String[] blah = {"ding","dong","swing","swig","carol","hearts",
+			 "convivial","penury","regicide","cadence","misogamy",
+			 "candor","fuddle","repulsion","wisenheimer","iris"};
+	Sarray s = new Sarray(20,blah);
+	System.out.println(s);
 	s.builtin();
 	System.out.println(s);
     }
