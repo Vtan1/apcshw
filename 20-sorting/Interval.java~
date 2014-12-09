@@ -1,0 +1,25 @@
+import java.util.*;
+import java.io.*;
+
+public class Interval {
+    private double high, low;
+    //private Interval[];
+    public Interval (double h, double l) {
+	low = l;
+	high = h;
+    }
+
+    public Interval () {
+	Random r = new Random();
+	high = r.nextInt(10);
+	low = r.nextInt(10);
+    }
+
+    public String toString() {
+	return "[" + low + "," + high + "]";
+	
+    }
+
+    public static void main(String[] args) {
+	Interval i = new Interval();
+}
