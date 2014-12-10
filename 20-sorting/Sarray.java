@@ -170,6 +170,12 @@ public class Sarray {
 }
 
 /*
+  The built-in sort function is about the same speed as the selection and
+  insertion sorts, but closer to insertion sort. Bubble sort is much slower
+  than the built-in sort function.
+*/
+
+/*
   add(int i) adds to end
   add(int index, int i) adds to location index and shift things down
   get(int index)
