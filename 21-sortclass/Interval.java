@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Interval {
+public class Interval implements Comparable{
     private double high, low;
     Random r = new Random();
     private static int numIntervals = 0;
@@ -26,15 +26,19 @@ public class Interval {
 	return "[" + low + "," + high + "]";
     }
 
-    public int compareTo(Interval other) {
-	if (this.low > other.low) {
+    public int compareTo(Object other) {
+	/* cast other to the appropriate type and store in a local variable
+	   for convenience
+	*/
+	Interval o = (Interval)other;
+	if (this.low > o.low) {
 	    return 1;
-	} else if (this.low < other.low) {
+	} else if (this.low < o.low) {
 	    return -1;
 	} else {
-	    if (this.high > other.high) {
+	    if (this.high > o.high) {
 		return 1;
-	    } else if (this.high < other.high) {
+	    } else if (this.high < o.high) {
 		return -1;
 	    } else {
 		return 0;
@@ -62,5 +66,34 @@ public class Interval {
 	    a[i] = new Interval();
 	}
 	System.out.println(Arrays.toString(a));
+
+	String[] sa = {"hello", "frog","absolute","zoo","bagel"};
+	System.out.println(Arrays.toString(sa));
+	Arrays.sort(sa);
+	System.out.println(Arrays.toString(sa));
+
+	System.out.println(Arrays.toString(a));
+	Arrays.sort(a);
+	System.out.println(Arrays.toString(a));
+
+	/*
+	  Interface: a specification that lists methods
+	  Ex:
+	    interface name {
+	      method1 signature;
+	      method2 signature;
+	    }
+	  Signature: pub/priv; return type;name;(params)
+	  Ex: public void swag(int x, int y)
+	  
+	  This is built in!
+	  interface Comparable {
+	    public int compareTo(object other)
+	  }
+
+	  A class that implements an interface must define ALL the methods in
+	  the interface. Similar to abstract class.
+	  You can only extend one class, but you can implement many interfaces.
+	*/
     }
 }
