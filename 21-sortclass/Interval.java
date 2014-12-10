@@ -1,33 +1,31 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
-class Interval {
-
-    private int low,high;
-    private Random r = new Random();				
+public class Interval {
+    private double high, low;
+    Random r = new Random();
     private static int numIntervals = 0;
-		
-    public Interval(int l, int h){
-	low = l;
-	high = h;
-	numIntervals = numIntervals + 1;
+    //static makes memory allocated in the class and belongs in the class, not
+    //the instance variable. Helps keep track of things created overall in class
+    
+    public Interval () {
+	low = r.nextInt(10);
+	high = r.nextInt(10) + low + 1;
+	//+1 so that the numbers won't be the same if the second # is 0
+	numIntervals++;
     }
-		
-    public Interval() {
-	int l = r.nextInt(100);
-	int h = l + 1 + r.nextInt(100);
+    
+    public Interval (double h, double l) {
 	low = l;
 	high = h;
-	numIntervals = numIntervals + 1;
+	numIntervals++;
     }
 
     public String toString() {
 	//String s = "Inteval: "+numIntervals+": "+ "["+low+","+high+"]";
-	String s = "["+low+","+high+"]";
-
-	return s;
+	return "[" + low + "," + high + "]";
     }
-    
+
     public int compareTo(Interval other) {
 	if (this.low > other.low) {
 	    return 1;
@@ -47,17 +45,20 @@ class Interval {
     public static void printstuff() {
 	System.out.println("Stuff");
     }
+    
     public static void main(String[] args) {
-
+	for (int x = 0;x < 10; x ++) {
+	    System.out.println(new Interval());
+	}
 	Interval ival = new Interval(4,4);
 	Interval ival2 = new Interval(4,5);
 	System.out.println(ival.compareTo(ival2));
-	ival.printstuff(); // normal calling off of an instance
-	printstuff(); // since printStuff is static we can call it without an instance
-	Interval.printstuff(); // we can also call it right off a class
+	ival.printstuff(); //normal calling off of an instance
+	printstuff(); //since printstuff is static we can call without instance
+	Interval.printstuff(); //can also call off from a class
 
 	Interval[] a = new Interval[10];
-	for (int i = 0; i < a.length; i++) {
+	for (int i = 0;i < a.length; i ++) {
 	    a[i] = new Interval();
 	}
 	System.out.println(Arrays.toString(a));
