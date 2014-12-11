@@ -45,5 +45,11 @@ public class Mob implements Comparable{
 	System.out.println(Arrays.toString(m));
 	Arrays.sort(m);
 	System.out.println(Arrays.toString(m));
+	/*
+	  If something extends this class, it will also have Comparable
+	  implemented.
+	  Order does matter in terms of extending and implementing.
+	  Extend then implement.
+	*/
     }
 }
