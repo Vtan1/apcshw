@@ -1,0 +1,82 @@
+import java.util.*;
+import java.io.*;
+
+public class Searching {
+
+    private Comparable[] a;
+    private int last = 0;
+    
+    public Searching (int n) {
+	a = new Comparable[n];
+    }
+
+    public void additem(Comparable item) {
+	if (a.length == last) {
+	    Comparable[] a1 = new Comparable[last+1];
+	    for (int i = 0;i<a.length;i++) {
+		a1[i] = a[i];
+	    }
+	    a1[last+1] = item;
+	    a = a1;
+	} else {
+	    for (int i = 0;i<a.length;i++) {
+		if (a[i] == null) {
+		    a[i] = item;
+		    return;
+		}
+	    }
+	}
+    }
+
+    public void sort() {
+	Arrays.sort(a);
+    }
+
+    public Comparable lsearch(Comparable x) {
+	for (int i = 0;i < a.length; i++) {
+	    if (a[i] == x) {
+		return x;
+	    }
+	}
+	return null;
+    }
+
+    public Comparable bsearch(Comparable x) {
+	int low = 0;
+	int high = a.length - 1;
+	int mid = (low + high) / 2;
+	while (low <= high) {
+	    if (a[mid] == x) {
+		return x;
+	    } else {
+		if (x.compareTo(a[mid]) > 0) {
+		    low = mid + 1;
+		} else {
+		    high = mid - 1;
+		}
+	    }
+	    mid = (low + high) / 2;
+	}
+	return null;
+    }
+
+    public Comparable rbsearch (Comparable x, int low, int high) {
+	int mid = (low + high) / 2;
+	if (low <= high) {
+	    if (a[mid] == x) {
+		return x;
+	    } else {
+		if (x.compareTo(a[mid]) > 0) {
+		    rbsearch(x, mid + 1, high);
+		} else {
+		    rbsearch(x, low, mid - 1);
+		}
+	    }
+	}
+	return null;
+    }
+
+    public Comparable rbsearch (Comparable x) {
+	return rbsearch (x,0,a.length-1);
+    }
+}
