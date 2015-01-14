@@ -1,0 +1,9 @@
+https://github.com/elc1798/revenge-of-the-octocat
+
+In BackGroundLoader.java, an image is taken and drawn on to fill the entire gui.
+
+In Bug.java, the bug is set to move around using deltaX and deltaY while it looks around for the Octocat. The constructor tries a few times to set a location for 5 bugs. Line 154 has a move function that will move the bu g depending on how high level the level is. In the end, depending on the location of the sprite initially, the bug will redraw itself and its boundaries in the correct spot towards the octocat.
+
+Entity just has types of data and ways to access them.
+
+Controller.java starts out by adding in the initial background screen and Octocat in to the graphics. You start with 3 ammo and can get more ammo as you move and use up 1 ammo each time you shoot. For now, Octocat's other attack is a close range move in which he spins in a circle and damages one enemy. There are functions to spawn powerups which may restore ammo, create a game over screen, and a next level screen, which increases the number of bugsand their level.
